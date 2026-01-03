@@ -9,7 +9,7 @@ function App() {
 
     //TODO: Implement token retrieval from global state logic
 
-    const token = '';
+    const token = 'qweqwe';
 
     //
     return (

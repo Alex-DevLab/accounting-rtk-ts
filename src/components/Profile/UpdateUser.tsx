@@ -16,7 +16,7 @@ const UpdateUser = () => {
         case UPDATE_MODE_EDIT_PROFILE:
             return <EditProfile close = {close}/>
         case UPDATE_MODE_CHANGE_PASSWORD:
-            return <ChangePassword/>
+            return <ChangePassword close={close}/>
 
         default:
             return (
