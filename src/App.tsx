@@ -4,14 +4,11 @@ import {Route, Routes} from "react-router";
 import Guest from "./components/Guest";
 import ProtectedProfile from "./components/Profile/ProtectedProfile.tsx";
 import ProtectedGuest from "./components/Guest/ProtectedGuest.tsx";
+import {useAppSelector} from "./app/hooks.ts";
 
 function App() {
+    const token = useAppSelector(state =>state.token);
 
-    //TODO: Implement token retrieval from global state logic
-
-    const token = 'qweqwe';
-
-    //
     return (
         <Routes>
             <Route element={<ProtectedGuest token={token}/>}>

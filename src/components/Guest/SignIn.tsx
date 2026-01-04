@@ -1,20 +1,23 @@
 import {useState} from "react";
+import {useAppDispatch} from "../../app/hooks.ts";
+import {fetchUser} from "../../features/api/accountApi.ts";
+import {createToken} from "../../utils/constants.ts";
 
 const SignIn = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useAppDispatch();
 
-    const handleClickSignIn =()=>{
-        // TODO: Implement sing in logic
-        alert('Sign in successful!');
+    const handleClickSignIn = () => {
+        dispatch(fetchUser(createToken(login, password)));
     }
 
-    const handleClickClear =()=>{
-       setLogin('');
-       setPassword('');
+    const handleClickClear = () => {
+        setLogin('');
+        setPassword('');
     }
 
-    
+
     return (
         <>
             <label htmlFor="">
@@ -29,8 +32,8 @@ const SignIn = () => {
             <label htmlFor="">
                 Password:
                 <input type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
+                       value={password}
+                       onChange={(e) => setPassword(e.target.value)}/>
             </label>
             <button onClick={handleClickSignIn}>Sign In</button>
             <button onClick={handleClickClear}>Clear</button>
